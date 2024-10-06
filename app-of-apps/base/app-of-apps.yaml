@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/caerulescens/helm-charts.git
-    targetRevision: feature/mvp
+    targetRevision: feature/updating-charts
     path: charts/app-of-apps
     helm:
       valuesObject:
@@ -18,73 +18,71 @@ spec:
           name: default
           description: application that launches other applications
           organization: caerulescens
-          environment: development
+          environment: dev
           region: local
           domain: caerulescens.test
           platform: minikube
           profile: default
           repository: https://github.com/caerulescens/kustomizations.git
-          branch: master
+          branch: feature/updating-charts
         network:
-          mode: istio
+          enabled: true
           issuer: selfsigned
+        logs:
+          enabled: true
+          level: info
+          format: json
+        metrics:
+          enabled: true
+        traces:
+          enabled: true
         applications:
-          argocd:
-            enabled: false
-            revision: 5.49.0
-            namespace: argocd
-          certManager:
-            enabled: true
-            revision: 1.13.2
-            namespace: cert-manager
           istio:
             enabled: true
-            revision: 1.18.0
             base:
+              namespace: istio-system
+            istiod:
               namespace: istio-system
             gateway:
               namespace: istio-ingress
-            istiod:
-              namespace: istio-system
+          certManager:
+            enabled: true
+            namespace: cert-manager
           kiali:
-            enabled: false
-            revision: 1.70.0
+            enabled: true
             namespace: kiali-operator
+          argocd:
+            enabled: true
+            namespace: argocd
           knative:
             enabled: false
             operator:
-              version: 1.11.0
               namespace: default
             serving:
-              version: 1.11.0
               namespace: knative-serving
             eventing:
-              version: 1.11.0
               namespace: knative-eventing
-          prometheus:
+          lgtm:
             enabled: false
-            revision: 48.1.1
-            namespace: kube-prometheus
-          minio:
+            namespace: lgtm-distributed
+          rook:
             enabled: false
-            revision: 5.0.13
-            namespace: minio
+            namespace: rook-ceph
           loki:
             enabled: false
-            revision: 0.69.16
             namespace: loki
           promtail:
             enabled: false
-            revision: 6.11.5
             namespace: promtail
           tempo:
             enabled: false
-            revision: 1.4.8
             namespace: tempo
-          kafka:
+          strimzi:
             enabled: false
-            revision: 0.35.1
             namespace: kafka
+          rabbitmq:
+            enabled: false
+            namespace: rabbitmq
   syncPolicy:
     automated:
       selfHeal: true
