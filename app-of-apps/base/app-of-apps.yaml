@@ -38,7 +38,7 @@ spec:
           enabled: true
         applications:
           istio:
-            enabled: true
+            enabled: false
             base:
               namespace: istio-system
             istiod:
