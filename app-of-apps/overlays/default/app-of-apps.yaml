@@ -38,7 +38,7 @@ spec:
           enabled: true
         applications:
           istio:
-            enabled: false
+            enabled: true
             base:
               namespace: istio-system
             istiod:
@@ -49,7 +49,7 @@ spec:
             enabled: true
             namespace: cert-manager
           kiali:
-            enabled: true
+            enabled: false
             namespace: kiali-operator
           argocd:
             enabled: true
