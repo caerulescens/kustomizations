@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/caerulescens/helm-charts.git
-    targetRevision: feature/mvp
+    targetRevision: feature/updating-charts
     path: charts/app-of-apps
     helm:
       valuesObject:

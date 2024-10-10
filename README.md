@@ -32,6 +32,6 @@ kustomize build --enable-helm .
 
 Run:
 ```shell
-helm install --create-namespace --namespace argocd argocd k12s/charts/argo-cd-v7.6.8/argo-cd
-kustomize build --enable-helm k12s/app-of-apps/overlays/default | kubectl apply -f -
+helm install --create-namespace --namespace argocd argocd charts/argo-cd-v7.6.8/argo-cd
+kustomize build --enable-helm app-of-apps/overlays/default | kubectl apply -f -
 ```
