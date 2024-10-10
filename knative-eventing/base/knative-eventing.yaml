@@ -4,7 +4,7 @@ metadata:
   name: knative-eventing
   namespace: knative-eventing
 spec:
-  version: 1.11.0
+  version: 1.15.0
   defaultBrokerClass: Kafka
 
   config:
