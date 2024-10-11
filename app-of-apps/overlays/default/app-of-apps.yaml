@@ -49,7 +49,7 @@ spec:
             enabled: true
             namespace: cert-manager
           kiali:
-            enabled: false
+            enabled: true
             namespace: kiali-operator
           argocd:
             enabled: true
