@@ -49,10 +49,10 @@ spec:
             enabled: true
             namespace: cert-manager
           kiali:
-            enabled: true
+            enabled: false
             namespace: kiali-operator
           argocd:
-            enabled: true
+            enabled: false
             namespace: argocd
           knative:
             enabled: false
