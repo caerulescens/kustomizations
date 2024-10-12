@@ -63,7 +63,7 @@ spec:
             eventing:
               namespace: knative-eventing
           lgtm:
-            enabled: false
+            enabled: true
             namespace: lgtm-distributed
           rook:
             enabled: false
